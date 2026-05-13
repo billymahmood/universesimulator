@@ -56,9 +56,27 @@ Progress so far:
 | Phase 3 — Planetary differentiation | ✅ |
 | Phase 4 — Chemical reactions | ✅ |
 | Phase 5 — Polymers | ✅ |
-| Phase 6 — Life | ⬜ |
+| Phase 6 — Emergent life | ⬜ blocked on dependency chain below |
 | Photorealistic rendering pipeline | 6/8 sub-tasks done (issue #12) |
 | De-hardcoding pass | 6 of 11 items done (issue #11) |
+
+### Path to Phase 6 — Emergent life
+
+Phase 6 is the project's capstone (autocatalytic chemistry → template replication → selection pressure). For it to be **truly emergent** rather than hand-coded "Avida-style" artificial life, four prerequisites must land first, in a specific order so we never have to rewrite earlier work:
+
+| Order | Issue | What it is | Effort |
+|:-:|---|---|---|
+| 1 | [#13 Explicit electrons](https://github.com/billymahmood/universesimulator/issues/13) | Replace implicit `max_bonds` with real electron orbitals. Foundational chemistry rewrite — bond formation, ionisation, photon emission, spectral lines all become electron-driven. | 4–8 weeks |
+| 2 | [#14 Multi-bond reactions](https://github.com/billymahmood/universesimulator/issues/14) | Real metabolism breaks/forms several bonds at once (`2H₂ + O₂ → 2H₂O`). Required for autocatalytic network closure. | 3–4 weeks |
+| 3 | [#15 Stereochemistry / bond angles](https://github.com/billymahmood/universesimulator/issues/15) | 3D molecular shape — needed for template-based replication. With #13 in place, hybridisation emerges from orbital geometry. | 3–4 weeks |
+| 4 | [#23 Lineage tracking](https://github.com/billymahmood/universesimulator/issues/23) | Per-particle `parent_id` so replication events can be traced through generations. Independent of the chemistry stack — can land in parallel. | ~1 week |
+| 5 | [#6 Phase 6 — Emergent life](https://github.com/billymahmood/universesimulator/issues/6) | Autocatalysis (6a) → template replication (6b) → selection pressure (6c) → HUD + lineage viz (6d). All four sub-phases emergent from chemistry, no hardcoded "alive" tag. | ~3 weeks |
+
+**Total time to Phase 6:** ~10–17 weeks of prerequisite work (depending on contributor parallelism) + ~3 weeks of life work = ~13–20 weeks.
+
+Why this order matters: doing #14 or #15 *before* #13 would mean rewriting them once electrons land. Doing #6 *before* the prerequisites either forces us to violate [PHILOSOPHY.md](PHILOSOPHY.md) by hardcoding life-like behaviour, or it produces something that doesn't quite work.
+
+If you want to contribute toward Phase 6: pick whichever of #13 / #14 / #15 / #23 hasn't been claimed yet, comment on the issue that you're taking it, branch + PR per [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Controls
 
