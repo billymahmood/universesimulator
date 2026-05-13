@@ -67,6 +67,7 @@ from sim.elements import ELEMENTS_LIST
 from sim.extinction import compute_visibility, per_particle_optical_depth
 from sim.illumination import compute_received_rgb_flux
 from sim.molecules import identify_molecules, molecule_counts
+from sim.polymers import polymer_stats, polymer_of
 from sim.states import state_counts
 from sim.world import World
 
@@ -684,11 +685,27 @@ class Viewer:
 
         # Molecule census — show top-N by count
         mol_str = ''
+        poly_str = ''
         if w.bonds:
             mc = molecule_counts(w)
             if mc:
                 top_mols = sorted(mc.items(), key=lambda kv: -kv[1])[:4]
                 mol_str  = '  mols:[' + ' '.join(f'{f}:{c}' for f, c in top_mols) + ']'
+
+            # Phase-5 polymer census: longest chain, mean chain, motif counts.
+            # Only shown when at least one polymer chain reaches length ≥ 3,
+            # so simple diatomics don't clutter the HUD.
+            stats = polymer_stats(w)
+            if stats['max_chain'] >= 3:
+                poly_str = (
+                    f'  poly:[max={stats["max_chain"]} '
+                    f'mean={stats["mean_chain"]:.1f}]'
+                )
+                if stats['motif_counts']:
+                    motif_bits = ' '.join(
+                        f'{k}:{v}' for k, v in stats['motif_counts'].items()
+                    )
+                    poly_str += f' motifs:[{motif_bits}]'
 
         self.canvas.title = (
             f'Universe | {status}'
@@ -699,7 +716,7 @@ class Viewer:
             f'E={e_total:.2e}{drift}  clamps={w.total_velocity_clamps}  '
             f't={w.time:.1f}s  fps={self._fps:.0f}  '
             f'speed={self.speed:.1f}x  [{top}]'
-            f'{mol_str}'
+            f'{mol_str}{poly_str}'
         )
 
     # ------------------------------------------------------------------
@@ -959,6 +976,21 @@ class Viewer:
                     lines.append(f'molecule: {mol.formula}  ({mol.name})')
                 else:
                     lines.append(f'molecule: {mol.formula}')
+
+            # Phase-5 polymer topology — chain length, branches, rings, motifs.
+            # Only shown for components large enough to have non-trivial
+            # structure (size ≥ 3); simple diatomics are already covered by
+            # the molecule line above.
+            poly = polymer_of(w, i)
+            if poly is not None and poly.size >= 3:
+                topo = f'chain={poly.chain_length}'
+                if poly.branches:
+                    topo += f' branches={poly.branches}'
+                if poly.rings:
+                    topo += f' rings={poly.rings}'
+                lines.append(f'polymer: size={poly.size}  {topo}')
+                if poly.motifs:
+                    lines.append(f'motifs: {", ".join(poly.motifs)}')
 
         return '\n'.join(lines)
 

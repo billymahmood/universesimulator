@@ -36,6 +36,7 @@ python main.py
 | **Wavelength-dependent reddening** | Per-RGB extinction with Fitzpatrick 1999 ISM weights | Fitzpatrick 1999 |
 | **HDR tone mapping** | Reinhard exposure curve so dim sources stay visible | Real CCD response |
 | **Explicit photons** | Stochastic thermal emission at rate ∝ T⁴, finite-c straight-line propagation, swept-volume absorption, real radiation pressure | Stefan-Boltzmann + Rybicki §1 |
+| **Polymer analysis** | Chain length via BFS diameter, branching count, ring detection from cyclomatic complexity, motif tagging (amino-acid-like, nucleotide-like) on the bond graph | Aho-Hopcroft-Ullman; Diestel §1.9; Flory 1953; Lehninger 6e |
 
 Every halo around every particle is the result of real Stefan-Boltzmann emission scaling, coloured by the real Planck-curve. There is no painted starfield — the void is empty.
 
@@ -54,7 +55,7 @@ Progress so far:
 | Phase 2 — Molecule recognition | ✅ |
 | Phase 3 — Planetary differentiation | ✅ |
 | Phase 4 — Chemical reactions | ✅ |
-| Phase 5 — Polymers | ⬜ |
+| Phase 5 — Polymers | ✅ |
 | Phase 6 — Life | ⬜ |
 | Photorealistic rendering pipeline | 6/8 sub-tasks done (issue #12) |
 | De-hardcoding pass | 6 of 11 items done (issue #11) |
@@ -138,6 +139,7 @@ sim/
   molecules.py       — connected-component identification, Hill formulae
   illumination.py    — inverse-square flux from emitters to receivers
   extinction.py      — Beer-Lambert line-of-sight absorption
+  polymers.py        — chain length / branching / rings / motif tagging
   diagnostics.py     — total KE, PE, momentum, drift %
   injector.py        — particle birth (position, velocity, element sampling)
   world.py           — state, velocity-Verlet integrator, full step loop
