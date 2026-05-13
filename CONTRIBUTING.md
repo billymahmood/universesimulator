@@ -4,6 +4,17 @@ Welcome! This project simulates the universe from real physics — no hardcoded 
 
 Read [PHILOSOPHY.md](PHILOSOPHY.md) before submitting your first PR. It's short.
 
+## Looking for a task to pick up?
+
+The full prioritised list of open work is in the [**"Where to start" section of the README**](../README.md#where-to-start-full-priority-order-for-contributors) — 15 open issues sorted into three tiers plus a "good first issue" pickup list.
+
+**Quick decisions:**
+- **First contribution?** Pick a [`good first issue`](https://github.com/billymahmood/universesimulator/labels/good%20first%20issue) — they're small, well-scoped, and low risk.
+- **Want maximum impact?** Pick a [`blocks-phase-6`](https://github.com/billymahmood/universesimulator/labels/blocks-phase-6) issue — they unlock the project's capstone (emergent life).
+- **Have a weekend?** Filter by [`effort-small`](https://github.com/billymahmood/universesimulator/labels/effort-small) — work that fits in one focused session.
+
+Before starting: comment on the issue saying you're taking it so we don't duplicate effort.
+
 ## Workflow
 
 1. **Fork the repo** (or for direct collaborators, clone it).

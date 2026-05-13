@@ -78,6 +78,60 @@ Why this order matters: doing #14 or #15 *before* #13 would mean rewriting them 
 
 If you want to contribute toward Phase 6: pick whichever of #13 / #14 / #15 / #23 hasn't been claimed yet, comment on the issue that you're taking it, branch + PR per [CONTRIBUTING.md](CONTRIBUTING.md).
 
+### Where to start (full priority order for contributors)
+
+All 15 open issues, ranked. Pick from the top tier if it's available; drop down a tier if those are claimed or if the scope/effort doesn't match what you can commit.
+
+**Tier 1 — Critical path to Phase 6 (highest leverage on the project's main goal)**
+
+Doing these in this order means the project's capstone (emergent life) becomes possible. Tagged [`blocks-phase-6`](https://github.com/billymahmood/universesimulator/labels/blocks-phase-6) on GitHub.
+
+| Order | Issue | Effort | Status |
+|:-:|---|---|---|
+| 1 | [#13 Explicit electrons](https://github.com/billymahmood/universesimulator/issues/13) | 4–8 weeks | Foundational chemistry rewrite. Biggest task on the board. |
+| 2 | [#14 Multi-bond reactions](https://github.com/billymahmood/universesimulator/issues/14) | 3–4 weeks | After #13 lands. Unlocks real metabolism. |
+| 3 | [#15 Stereochemistry / bond angles](https://github.com/billymahmood/universesimulator/issues/15) | 3–4 weeks | After #14. Needed for template-based replication. |
+| 4 | [#23 Lineage tracking](https://github.com/billymahmood/universesimulator/issues/23) | ~1 week | Can land **in parallel** with any of the above. Good first issue. |
+| 5 | [#6 Phase 6 — Emergent life](https://github.com/billymahmood/universesimulator/issues/6) | ~3 weeks | After all four prerequisites. |
+
+**Tier 2 — Useful infrastructure (parallel work, easy to pick up)**
+
+Doesn't block Phase 6 but improves the project. Tagged [`effort-small`](https://github.com/billymahmood/universesimulator/labels/effort-small) on GitHub.
+
+| Issue | Effort | Why it's useful |
+|---|---|---|
+| [#8 Save / load world state](https://github.com/billymahmood/universesimulator/issues/8) | ~1 week | Long Phase 6 runs survive restarts. Good first issue. |
+| [#9 Scenario presets](https://github.com/billymahmood/universesimulator/issues/9) | ~1 week | Protoplanetary disk, primordial soup — useful for Phase 6 testing. |
+| [#18 Wavelength tracking on photons](https://github.com/billymahmood/universesimulator/issues/18) | 3–4 weeks | Extends the photon module — opens up spectral lines. |
+| [#20 Photon-photon interactions](https://github.com/billymahmood/universesimulator/issues/20) | ~1 hour | Mostly a docstring no-op (cross-sections are unobservably small in our regime). Good for someone wanting a tiny first commit. |
+
+**Tier 3 — Beautiful but optional (luxury items)**
+
+Pick if you have a specific demo or visual you want to see.
+
+| Issue | Effort | What it gets you |
+|---|---|---|
+| [#16 Gravitational lensing](https://github.com/billymahmood/universesimulator/issues/16) | 3–4 weeks | Einstein rings, real GR light bending. |
+| [#17 Volumetric ray-marching](https://github.com/billymahmood/universesimulator/issues/17) | 4–8 weeks | Cosmology-quality gas rendering. |
+| [#19 Compton + Rayleigh scattering](https://github.com/billymahmood/universesimulator/issues/19) | 3–5 weeks | Explains why the sky is blue; needs #18 first. |
+| [#21 Wavelength-dependent cross-sections](https://github.com/billymahmood/universesimulator/issues/21) | 3–5 weeks | Real ISM reddening, Strömgren spheres; needs #18 first. |
+| [#10 Time tiers](https://github.com/billymahmood/universesimulator/issues/10) | 1–2 weeks | Fast-forward through quiet periods of the sim. |
+| [#12 Photorealistic rendering umbrella](https://github.com/billymahmood/universesimulator/issues/12) | – | Tracks #18-21; 6/8 sub-tasks already done. |
+
+**Good first issues (small, clear scope, low risk)**
+
+If you're new to the codebase, start with one of these — they have well-defined scope and won't require deep architectural changes. Tagged [`good first issue`](https://github.com/billymahmood/universesimulator/labels/good%20first%20issue) on GitHub.
+
+- [#23 Lineage tracking](https://github.com/billymahmood/universesimulator/issues/23) — copies the existing `composition` pattern; pure addition
+- [#8 Save / load](https://github.com/billymahmood/universesimulator/issues/8) — file I/O, no physics changes
+- [#20 Photon-photon](https://github.com/billymahmood/universesimulator/issues/20) — literally a docstring + reference
+
+**How to claim a task**
+
+1. Comment on the issue saying you're taking it (so others don't duplicate effort)
+2. Branch + PR per [CONTRIBUTING.md](CONTRIBUTING.md)
+3. The repo owner reviews and approves
+
 ## Controls
 
 | Key / Mouse | Action |
