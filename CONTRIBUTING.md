@@ -177,6 +177,14 @@ The repo owner reviews every PR. Expect questions about:
 
 PRs that don't engage with these aren't going to merge. PRs that do — even imperfectly — will get good feedback.
 
+## License
+
+The project is licensed under [PolyForm Noncommercial 1.0.0](LICENSE) — free for non-commercial use (personal, educational, research, hobby, government, non-profit), but commercial use / resale is not permitted.
+
+By submitting a PR, you agree your contribution is offered under the same license.
+
+If you want to use the project commercially, [open an issue](https://github.com/billymahmood/universesimulator/issues) to discuss.
+
 ## Questions?
 
 Open a GitHub issue with the `question` label or comment on an existing related issue. Discussions on architecture (especially for `needs-architect` items) are welcome.

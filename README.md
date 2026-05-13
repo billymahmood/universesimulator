@@ -233,4 +233,11 @@ If you want to discuss architecture before coding (especially for `multi-week` /
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+**PolyForm Noncommercial License 1.0.0** — see [LICENSE](LICENSE).
+
+**TL;DR:**
+- ✅ Free for any **non-commercial** use — personal, educational, research, hobby, government, NGO.
+- ✅ You can fork, modify, contribute, and share.
+- ❌ You **cannot** sell this software or use it inside a commercial product.
+
+If you want to use it commercially, [open an issue](https://github.com/billymahmood/universesimulator/issues) to discuss.
